@@ -1,86 +1,44 @@
-# Portfolio Backend API
+# Portfolio Backend
 
-Backend para mi portfolio personal. Expone endpoints REST para consultar proyectos, tecnologías y experiencia profesional.
+API REST para mi portafolio personal desarrollada con ASP.NET Core.
 
-## Stack
+## Tecnologías
 
 - ASP.NET Core 10.0
 - Entity Framework Core
-- SQL Server (LocalDB)
+- PostgreSQL
 - AutoMapper
-- Swagger
 
-## Estructura
-
-El proyecto usa Clean Architecture dividido en 4 capas:
+## Arquitectura
 
 ```
-PortfolioBackend.API/          # Controllers y configuración
-PortfolioBackend.Application/  # Servicios y DTOs
-PortfolioBackend.Domain/       # Entidades e interfaces
-PortfolioBackend.Infrastructure/ # Repositorios y DbContext
+PortfolioBackend.API/          
+PortfolioBackend.Application/  
+PortfolioBackend.Domain/       
+PortfolioBackend.Infrastructure/
 ```
 
-## Configuración
+## Instalación
 
-1. Instalar .NET 10.0 SDK
-
-2. Restaurar paquetes:
 ```bash
 dotnet restore
-```
-
-3. Crear la base de datos:
-```bash
 dotnet ef database update --project PortfolioBackend.Infrastructure --startup-project PortfolioBackend.API
+dotnet run --project PortfolioBackend.API
 ```
 
-4. Ejecutar:
-```bash
-dotnet run --project PortfolioBackend.API --launch-profile http
+## API Endpoints
+
+```
+GET /api/Dashboard/stats
+GET /api/Projects
+GET /api/Technologies
+GET /api/Experience
 ```
 
-El servidor corre en `http://localhost:5003`
+## Deploy
 
-## Endpoints
+Render.com con PostgreSQL
 
-- `GET /api/Dashboard/stats` - Estadísticas generales
-- `GET /api/Projects` - Lista de proyectos
-- `GET /api/Projects/{id}` - Proyecto específico
-- `GET /api/Technologies` - Lista de tecnologías
-- `GET /api/Technologies/{id}` - Tecnología específica
-- `GET /api/Experience` - Experiencias profesionales
-- `GET /api/Experience/{id}` - Experiencia específica
+## Demo
 
-## Swagger
-
-Documentación interactiva disponible en: `http://localhost:5003/swagger`
-
-## Base de datos
-
-Usa SQL Server LocalDB. La cadena de conexión está en `appsettings.json`:
-Los datos iniciales se cargan automáticamente desde `SeedData.cs`
-
-## CORS
-
-Configurado para aceptar peticiones desde:
-- `http://localhost:5173` (desarrollo)
-- `https://portfolio-frontend-weld-beta.vercel.app` (producción)
-- `*.vercel.app` (otros dominios de Vercel)
-
-## Despliegue
-
-Este proyecto está listo para desplegarse en Render.com. Ver [DEPLOYMENT.md](DEPLOYMENT.md) para instrucciones detalladas.
-
-### Despliegue Rápido en Render
-
-1. Sube el proyecto a GitHub
-2. Crea una cuenta en [render.com](https://render.com)
-3. Selecciona "New Blueprint" y conecta tu repositorio
-4. Render detectará `render.yaml` y configurará todo automáticamente
-
-Tu API estará disponible en: `https://portfolio-backend-api.onrender.com`
-
-## Frontend
-
-El frontend está desplegado en: https://portfolio-frontend-weld-beta.vercel.app/
+https://portfolio-frontend-weld-beta.vercel.app

@@ -38,8 +38,6 @@ public class DashboardController : ControllerBase
             return StatusCode(500, new { error = "Error interno del servidor" });
         }
     }
-}
-
     
     [HttpPost("seed")]
     public async Task<IActionResult> SeedDatabase()
@@ -163,3 +161,4 @@ public class DashboardController : ControllerBase
             return StatusCode(500, new { error = ex.Message });
         }
     }
+}

@@ -1,0 +1,28 @@
+services:
+  # Base de datos PostgreSQL
+  - type: pserv
+    name: portfolio-db
+    plan: free
+    region: oregon
+    ipAllowList: []
+
+  # API Backend
+  - type: web
+    name: portfolio-backend-api
+    runtime: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:$PORT
+      - key: ConnectionStrings__DefaultConnection
+        fromDatabase:
+          name: portfolio-db
+          property: connectionString
+      - key: AllowedOrigins__0
+        value: https://portfolio-frontend-weld-beta.vercel.app
+      - key: AllowedOrigins__1
+        value: http://localhost:5173
+    healthCheckPath: /api/Dashboard/stats

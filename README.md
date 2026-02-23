@@ -65,5 +65,22 @@ Los datos iniciales se cargan automáticamente desde `SeedData.cs`
 
 Configurado para aceptar peticiones desde:
 - `http://localhost:5173` (desarrollo)
-- `*.vercel.app` (producción)
+- `https://portfolio-frontend-weld-beta.vercel.app` (producción)
+- `*.vercel.app` (otros dominios de Vercel)
 
+## Despliegue
+
+Este proyecto está listo para desplegarse en Render.com. Ver [DEPLOYMENT.md](DEPLOYMENT.md) para instrucciones detalladas.
+
+### Despliegue Rápido en Render
+
+1. Sube el proyecto a GitHub
+2. Crea una cuenta en [render.com](https://render.com)
+3. Selecciona "New Blueprint" y conecta tu repositorio
+4. Render detectará `render.yaml` y configurará todo automáticamente
+
+Tu API estará disponible en: `https://portfolio-backend-api.onrender.com`
+
+## Frontend
+
+El frontend está desplegado en: https://portfolio-frontend-weld-beta.vercel.app/

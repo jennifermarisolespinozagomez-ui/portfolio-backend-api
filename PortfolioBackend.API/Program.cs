@@ -61,6 +61,14 @@ builder.Services.AddResponseCompression(options =>
 
 var app = builder.Build();
 
+// Aplicar migraciones automáticamente en producción
+if (app.Environment.IsProduction())
+{
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
+    dbContext.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {

@@ -66,9 +66,16 @@ var app = builder.Build();
 // Aplicar migraciones automáticamente en producción
 if (app.Environment.IsProduction())
 {
-    using var scope = app.Services.CreateScope();
-    var dbContext = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
-    dbContext.Database.Migrate();
+    try
+    {
+        using var scope = app.Services.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
+        dbContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error aplicando migraciones: {ex.Message}");
+    }
 }
 
 // Configure the HTTP request pipeline

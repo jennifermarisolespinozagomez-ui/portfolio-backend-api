@@ -1,44 +1,134 @@
 [
   {
     "id": 1,
-    "name": "C#",
+    "name": "C",
     "category": "Backend",
-    "yearsOfExperience": 2.5
+    "yearsOfExperience": 2
   },
   {
     "id": 2,
-    "name": ".NET Core",
+    "name": "C++",
     "category": "Backend",
-    "yearsOfExperience": 2.0
+    "yearsOfExperience": 2
   },
   {
     "id": 3,
-    "name": "React",
-    "category": "Frontend",
-    "yearsOfExperience": 1.5
+    "name": "Java",
+    "category": "Backend",
+    "yearsOfExperience": 1
   },
   {
     "id": 4,
-    "name": "TypeScript",
-    "category": "Frontend",
-    "yearsOfExperience": 1.5
+    "name": "POO",
+    "category": "Backend",
+    "yearsOfExperience": 2
   },
   {
     "id": 5,
-    "name": "PostgreSQL",
-    "category": "Database",
-    "yearsOfExperience": 2.0
+    "name": "Angular 21",
+    "category": "Frontend",
+    "yearsOfExperience": 1
   },
   {
     "id": 6,
-    "name": "Docker",
-    "category": "DevOps",
-    "yearsOfExperience": 1.0
+    "name": "TypeScript 5.9",
+    "category": "Frontend",
+    "yearsOfExperience": 2
   },
   {
     "id": 7,
+    "name": "JavaScript",
+    "category": "Frontend",
+    "yearsOfExperience": 2
+  },
+  {
+    "id": 8,
+    "name": "HTML",
+    "category": "Frontend",
+    "yearsOfExperience": 3
+  },
+  {
+    "id": 9,
+    "name": "CSS",
+    "category": "Frontend",
+    "yearsOfExperience": 3
+  },
+  {
+    "id": 10,
+    "name": "Spring Boot",
+    "category": "Backend",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 11,
+    "name": "React",
+    "category": "Frontend",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 12,
+    "name": "Node.js",
+    "category": "Backend",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 13,
+    "name": "MongoDB",
+    "category": "Database",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 14,
+    "name": "PostgreSQL",
+    "category": "Database",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 15,
+    "name": "SQL Server",
+    "category": "Database",
+    "yearsOfExperience": 2
+  },
+  {
+    "id": 16,
     "name": "Git",
     "category": "Tools",
-    "yearsOfExperience": 3.0
+    "yearsOfExperience": 2
+  },
+  {
+    "id": 17,
+    "name": "Docker",
+    "category": "Tools",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 18,
+    "name": "ASP.NET Core",
+    "category": "Backend",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 19,
+    "name": "Elsa Workflows",
+    "category": "Backend",
+    "yearsOfExperience": 0.5
+  },
+  {
+    "id": 20,
+    "name": "New Relic",
+    "category": "Tools",
+    "yearsOfExperience": 0.5
+  },
+  {
+    "id": 21,
+    "name": "Android",
+    "category": "Mobile",
+    "yearsOfExperience": 1
+  },
+  {
+    "id": 22,
+    "name": "Postman",
+    "category": "Tools",
+    "yearsOfExperience": 2
   }
 ]

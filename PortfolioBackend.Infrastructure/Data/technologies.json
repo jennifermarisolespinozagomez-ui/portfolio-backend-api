@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "C#",
+    "category": "Backend",
+    "yearsOfExperience": 2.5
+  },
+  {
+    "id": 2,
+    "name": ".NET Core",
+    "category": "Backend",
+    "yearsOfExperience": 2.0
+  },
+  {
+    "id": 3,
+    "name": "React",
+    "category": "Frontend",
+    "yearsOfExperience": 1.5
+  },
+  {
+    "id": 4,
+    "name": "TypeScript",
+    "category": "Frontend",
+    "yearsOfExperience": 1.5
+  },
+  {
+    "id": 5,
+    "name": "PostgreSQL",
+    "category": "Database",
+    "yearsOfExperience": 2.0
+  },
+  {
+    "id": 6,
+    "name": "Docker",
+    "category": "DevOps",
+    "yearsOfExperience": 1.0
+  },
+  {
+    "id": 7,
+    "name": "Git",
+    "category": "Tools",
+    "yearsOfExperience": 3.0
+  }
+]

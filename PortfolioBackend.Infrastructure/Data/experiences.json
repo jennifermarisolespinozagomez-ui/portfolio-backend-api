@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "company": "Tech Solutions S.A.",
+    "role": "Desarrollador Backend Junior",
+    "modality": "Remoto",
+    "period": "Ene 2024 - Presente",
+    "project": "Sistema de Facturación Electrónica",
+    "technologies": "C#, .NET Core, PostgreSQL, Docker",
+    "usage": "Desarrollo de APIs REST y microservicios",
+    "isActive": true,
+    "startDate": "2024-01-01T00:00:00Z",
+    "endDate": null,
+    "createdAt": "2024-12-23T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "company": "Innovate Labs",
+    "role": "Desarrollador Full Stack",
+    "modality": "Híbrido",
+    "period": "Jun 2023 - Dic 2023",
+    "project": "Plataforma de E-learning",
+    "technologies": "React, TypeScript, Node.js, MongoDB",
+    "usage": "Desarrollo frontend y backend de módulos educativos",
+    "isActive": false,
+    "startDate": "2023-06-01T00:00:00Z",
+    "endDate": "2023-12-31T00:00:00Z",
+    "createdAt": "2024-06-23T00:00:00Z"
+  },
+  {
+    "id": 3,
+    "company": "StartUp XYZ",
+    "role": "Practicante de Desarrollo",
+    "modality": "Presencial",
+    "period": "Mar 2023 - May 2023",
+    "project": "App Móvil de Delivery",
+    "technologies": "React Native, Firebase",
+    "usage": "Desarrollo de componentes UI y consumo de APIs",
+    "isActive": false,
+    "startDate": "2023-03-01T00:00:00Z",
+    "endDate": "2023-05-31T00:00:00Z",
+    "createdAt": "2024-03-23T00:00:00Z"
+  }
+]

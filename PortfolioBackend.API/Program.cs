@@ -1,8 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using PortfolioBackend.Application.Mappings;
 using PortfolioBackend.Application.Services;
 using PortfolioBackend.Domain.Interfaces;
-using PortfolioBackend.Infrastructure.Data;
 using PortfolioBackend.Infrastructure.Repositories;
 using System.Text.Json.Serialization;
 
@@ -18,30 +16,13 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Entity Framework Core
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
-if (string.IsNullOrEmpty(connectionString))
-{
-    connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-}
-else
-{
-    // Convertir formato Render a formato Npgsql
-    // Render: postgresql://user:pass@host:port/dbname
-    // Npgsql: Host=host;Port=port;Database=dbname;Username=user;Password=pass;SSL Mode=Require;Trust Server Certificate=true
-    var databaseUri = new Uri(connectionString);
-    connectionString = $"Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.AbsolutePath.TrimStart('/')};Username={databaseUri.UserInfo.Split(':')[0]};Password={databaseUri.UserInfo.Split(':')[1]};SSL Mode=Require;Trust Server Certificate=true";
-}
-builder.Services.AddDbContext<PortfolioDbContext>(options =>
-    options.UseNpgsql(connectionString));
-
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
-// Repositorios
-builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
-builder.Services.AddScoped<ITechnologyRepository, TechnologyRepository>();
-builder.Services.AddScoped<IExperienceRepository, ExperienceRepository>();
+// Repositorios en memoria
+builder.Services.AddSingleton<IProjectRepository, InMemoryProjectRepository>();
+builder.Services.AddSingleton<ITechnologyRepository, InMemoryTechnologyRepository>();
+builder.Services.AddSingleton<IExperienceRepository, InMemoryExperienceRepository>();
 
 // Servicios
 builder.Services.AddScoped<IProjectService, ProjectService>();
@@ -73,21 +54,6 @@ builder.Services.AddResponseCompression(options =>
 });
 
 var app = builder.Build();
-
-// Migraciones deshabilitadas - las tablas ya están creadas
-// if (app.Environment.IsProduction())
-// {
-//     try
-//     {
-//         using var scope = app.Services.CreateScope();
-//         var dbContext = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
-//         dbContext.Database.Migrate();
-//     }
-//     catch (Exception ex)
-//     {
-//         Console.WriteLine($"Error aplicando migraciones: {ex.Message}");
-//     }
-// }
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

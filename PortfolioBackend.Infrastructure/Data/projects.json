@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Sistema de Gestión Académica",
+    "description": "Plataforma web para gestión de estudiantes y cursos",
+    "semester": 5,
+    "type": "Web",
+    "imageUrl": "https://example.com/project1.jpg",
+    "hoursInvested": 120,
+    "githubUrl": "https://github.com/user/academic-system",
+    "createdAt": "2025-08-23T00:00:00Z",
+    "technologyIds": [1, 2, 5]
+  },
+  {
+    "id": 2,
+    "title": "App Móvil de Tareas",
+    "description": "Aplicación móvil para gestión de tareas diarias",
+    "semester": 6,
+    "type": "Mobile",
+    "imageUrl": "https://example.com/project2.jpg",
+    "hoursInvested": 80,
+    "githubUrl": "https://github.com/user/task-app",
+    "createdAt": "2025-11-23T00:00:00Z",
+    "technologyIds": [3, 4]
+  },
+  {
+    "id": 3,
+    "title": "API REST de E-commerce",
+    "description": "Backend para tienda online con carrito de compras",
+    "semester": 7,
+    "type": "API",
+    "imageUrl": "https://example.com/project3.jpg",
+    "hoursInvested": 150,
+    "githubUrl": "https://github.com/user/ecommerce-api",
+    "createdAt": "2026-01-23T00:00:00Z",
+    "technologyIds": [1, 2, 5, 6]
+  }
+]

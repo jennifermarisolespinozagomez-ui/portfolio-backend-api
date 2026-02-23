@@ -19,8 +19,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Entity Framework Core
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") 
+    ?? builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<PortfolioDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
 
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));

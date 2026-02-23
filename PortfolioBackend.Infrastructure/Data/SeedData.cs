@@ -47,7 +47,7 @@ public static class SeedData
                 ImageUrl = "/images/proyecto-gestion-recursos.png",
                 HoursInvested = 150,
                 GithubUrl = "https://github.com/usuario/micomunidad",
-                CreatedAt = new DateTime(2025, 2, 1)
+                CreatedAt = new DateTime(2025, 2, 1, 0, 0, 0, DateTimeKind.Utc)
             }
         };
         
@@ -79,9 +79,9 @@ public static class SeedData
                 Technologies = "[\"React\",\"TypeScript\",\"C# .NET\",\"MongoDB\",\"PostgreSQL\",\"Elsa Workflows\",\"SQL\"]",
                 Usage = "Desarrollo de interfaces y tablas CRUD + creación de controladores, repositorios y migraciones SQL para base de datos + pruebas unitarias e integración",
                 IsActive = true,
-                StartDate = new DateTime(2025, 2, 20),
+                StartDate = new DateTime(2025, 2, 20, 0, 0, 0, DateTimeKind.Utc),
                 EndDate = null,
-                CreatedAt = new DateTime(2025, 2, 20)
+                CreatedAt = new DateTime(2025, 2, 20, 0, 0, 0, DateTimeKind.Utc)
             },
             new Experience
             {
@@ -94,9 +94,9 @@ public static class SeedData
                 Technologies = "[\"Java 17\",\"Spring Boot\",\"MongoDB\",\"Sabre GDS\",\"AWS SQS\",\"WebSocket\",\"Postman\"]",
                 Usage = "Pruebas funcionales e integración de sistema de pagos móviles + validación de flujos de pago, emisión de tickets y reembolsos + verificación de endpoints REST y notificaciones WebSocket",
                 IsActive = true,
-                StartDate = new DateTime(2025, 2, 20),
+                StartDate = new DateTime(2025, 2, 20, 0, 0, 0, DateTimeKind.Utc),
                 EndDate = null,
-                CreatedAt = new DateTime(2025, 2, 20)
+                CreatedAt = new DateTime(2025, 2, 20, 0, 0, 0, DateTimeKind.Utc)
             }
         };
         

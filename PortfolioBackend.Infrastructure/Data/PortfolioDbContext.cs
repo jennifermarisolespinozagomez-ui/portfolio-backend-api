@@ -41,7 +41,7 @@ public class PortfolioDbContext : DbContext
             entity.Property(p => p.Type).HasMaxLength(50).IsRequired();
             entity.Property(p => p.ImageUrl).HasMaxLength(500);
             entity.Property(p => p.GithubUrl).HasMaxLength(500);
-            entity.Property(p => p.CreatedAt).HasDefaultValueSql("GETDATE()");
+            entity.Property(p => p.CreatedAt).HasDefaultValueSql("NOW()");
         });
         
         modelBuilder.Entity<Technology>(entity =>
@@ -61,7 +61,7 @@ public class PortfolioDbContext : DbContext
             entity.Property(e => e.Technologies).IsRequired();
             entity.Property(e => e.Usage).IsRequired();
             entity.Property(e => e.IsActive).HasDefaultValue(true);
-            entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETDATE()");
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("NOW()");
         });
         
         SeedData.Seed(modelBuilder);

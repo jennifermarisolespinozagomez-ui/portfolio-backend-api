@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen();
 
 // Entity Framework Core
 builder.Services.AddDbContext<PortfolioDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));

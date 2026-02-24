@@ -30,17 +30,20 @@ builder.Services.AddScoped<ITechnologyService, TechnologyService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
 builder.Services.AddScoped<IExperienceService, ExperienceService>();
 
-// CORS
-var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() 
-    ?? new[] { "http://localhost:5173" };
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins(allowedOrigins)
+        policy.WithOrigins(
+                "http://localhost:5173",
+                "https://portfolio-frontend-iz7fstjlp.vercel.app",
+                "https://portfolio-frontend-weld-beta.vercel.app",
+                "https://jenniffer-espinoza.vercel.app"
+              )
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
 

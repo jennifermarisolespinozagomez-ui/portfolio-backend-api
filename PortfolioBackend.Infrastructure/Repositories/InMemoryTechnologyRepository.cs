@@ -17,12 +17,29 @@ public class InMemoryTechnologyRepository : ITechnologyRepository
             {
                 if (_technologies == null)
                 {
-                    var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "technologies.json");
-                    var jsonData = File.ReadAllText(jsonPath);
-                    _technologies = JsonSerializer.Deserialize<List<Technology>>(jsonData, new JsonSerializerOptions
+                    try
                     {
-                        PropertyNameCaseInsensitive = true
-                    }) ?? new List<Technology>();
+                        var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "technologies.json");
+                        
+                        if (!File.Exists(jsonPath))
+                        {
+                            Console.WriteLine($"ERROR: File not found at {jsonPath}");
+                            Console.WriteLine($"Base Directory: {AppDomain.CurrentDomain.BaseDirectory}");
+                            _technologies = new List<Technology>();
+                            return _technologies;
+                        }
+                        
+                        var jsonData = File.ReadAllText(jsonPath);
+                        _technologies = JsonSerializer.Deserialize<List<Technology>>(jsonData, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        }) ?? new List<Technology>();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"ERROR loading technologies: {ex.Message}");
+                        _technologies = new List<Technology>();
+                    }
                 }
             }
         }

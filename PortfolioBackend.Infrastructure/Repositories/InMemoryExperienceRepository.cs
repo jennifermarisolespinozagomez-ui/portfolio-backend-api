@@ -17,12 +17,29 @@ public class InMemoryExperienceRepository : IExperienceRepository
             {
                 if (_experiences == null)
                 {
-                    var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "experiences.json");
-                    var jsonData = File.ReadAllText(jsonPath);
-                    _experiences = JsonSerializer.Deserialize<List<Experience>>(jsonData, new JsonSerializerOptions
+                    try
                     {
-                        PropertyNameCaseInsensitive = true
-                    }) ?? new List<Experience>();
+                        var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "experiences.json");
+                        
+                        if (!File.Exists(jsonPath))
+                        {
+                            Console.WriteLine($"ERROR: File not found at {jsonPath}");
+                            Console.WriteLine($"Base Directory: {AppDomain.CurrentDomain.BaseDirectory}");
+                            _experiences = new List<Experience>();
+                            return _experiences;
+                        }
+                        
+                        var jsonData = File.ReadAllText(jsonPath);
+                        _experiences = JsonSerializer.Deserialize<List<Experience>>(jsonData, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        }) ?? new List<Experience>();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"ERROR loading experiences: {ex.Message}");
+                        _experiences = new List<Experience>();
+                    }
                 }
             }
         }

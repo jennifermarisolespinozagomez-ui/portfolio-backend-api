@@ -32,22 +32,57 @@ public class InMemoryProjectRepository : IProjectRepository
             {
                 if (_projectsData == null)
                 {
-                    var projectsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "projects.json");
-                    var projectsJson = File.ReadAllText(projectsPath);
-                    _projectsData = JsonSerializer.Deserialize<List<ProjectData>>(projectsJson, new JsonSerializerOptions
+                    try
                     {
-                        PropertyNameCaseInsensitive = true
-                    }) ?? new List<ProjectData>();
+                        var projectsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "projects.json");
+                        
+                        if (!File.Exists(projectsPath))
+                        {
+                            Console.WriteLine($"ERROR: File not found at {projectsPath}");
+                            Console.WriteLine($"Base Directory: {AppDomain.CurrentDomain.BaseDirectory}");
+                            _projectsData = new List<ProjectData>();
+                        }
+                        else
+                        {
+                            var projectsJson = File.ReadAllText(projectsPath);
+                            _projectsData = JsonSerializer.Deserialize<List<ProjectData>>(projectsJson, new JsonSerializerOptions
+                            {
+                                PropertyNameCaseInsensitive = true
+                            }) ?? new List<ProjectData>();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"ERROR loading projects: {ex.Message}");
+                        _projectsData = new List<ProjectData>();
+                    }
                 }
 
                 if (_technologies == null)
                 {
-                    var techPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "technologies.json");
-                    var techJson = File.ReadAllText(techPath);
-                    _technologies = JsonSerializer.Deserialize<List<Technology>>(techJson, new JsonSerializerOptions
+                    try
                     {
-                        PropertyNameCaseInsensitive = true
-                    }) ?? new List<Technology>();
+                        var techPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "technologies.json");
+                        
+                        if (!File.Exists(techPath))
+                        {
+                            Console.WriteLine($"ERROR: File not found at {techPath}");
+                            _technologies = new List<Technology>();
+                        }
+                        else
+                        {
+                            var techJson = File.ReadAllText(techPath);
+                            _technologies = JsonSerializer.Deserialize<List<Technology>>(techJson, new JsonSerializerOptions
+                            {
+                                PropertyNameCaseInsensitive = true
+                            }) ?? new List<Technology>();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"ERROR loading technologies for projects: {ex.Message}");
+                        _technologies = new List<Technology>();
+                    }
                 }
             }
         }
